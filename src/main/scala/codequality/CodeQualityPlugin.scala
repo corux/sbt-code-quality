@@ -22,12 +22,12 @@ object CodeQualityPlugin extends Plugin {
         val args = List(
           "-c", (base / "checkstyle-config.xml").getAbsolutePath,
           "-f", "xml",
-          "-r", src.getAbsolutePath,
-          "-o", (target / "checkstyle-result.xml").getAbsolutePath
+          "-o", (target / "checkstyle-result.xml").getAbsolutePath,
+          src.getAbsolutePath
         )
         log info ("using checkstyle args " + args)
         trappingExits {
-          CsMain(args.toArray)
+          CsMain(args.toArray:_*)
         }
       }
 
