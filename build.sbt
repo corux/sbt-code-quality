@@ -19,7 +19,7 @@ publishArtifact in Test := false
 pomIncludeRepository := { _ => false }
 
 publishTo <<= version { v: String =>
-val nexus = "http://tomcat.corux.de/nexus/"
+val nexus = "https://nexus.corux.de/"
 if (v.trim.endsWith("SNAPSHOT"))
   Some("snapshots" at nexus + "content/repositories/snapshots")
 else                            
